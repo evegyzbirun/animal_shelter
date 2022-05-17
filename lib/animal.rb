@@ -51,7 +51,7 @@ class Animal
 
   def save
     result = DB.exec("INSERT INTO animals (name, gender, admit_date, type, breed) VALUES ('#{@name}', '#{@gender}', '#{@admit_date}', '#{@type}', '#{@breed}') RETURNING id;")
-    @id = result.first().fetch("id").to_i
+    @id = result.first.fetch("id").to_i
   end
   def update(name, type, breed)
     @name = name
